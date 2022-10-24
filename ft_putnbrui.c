@@ -6,13 +6,13 @@
 /*   By: cbolat <cbolat@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 12:37:30 by cbolat            #+#    #+#             */
-/*   Updated: 2022/10/24 12:55:29 by cbolat           ###   ########.fr       */
+/*   Updated: 2022/10/24 16:15:53 by cbolat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-void	ft_printunsignedint(unsigned int nb)
+static void	ft_printunsignedint(unsigned int nb)
 {
 	if (nb > 9)
 	{

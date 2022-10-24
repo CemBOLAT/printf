@@ -6,7 +6,7 @@
 /*   By: cbolat <cbolat@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 11:28:54 by cbolat            #+#    #+#             */
-/*   Updated: 2022/10/24 16:03:29 by cbolat           ###   ########.fr       */
+/*   Updated: 2022/10/24 17:29:19 by cbolat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,13 +58,12 @@ int	ft_printf(const char *str, ...)
 	return (res);
 }
 
-// printf("cemal");
-
+/* // printf("cemal");
 int main()
 {
 	char *p = "cemal";
-	ft_printf("//%d//",ft_printf("cemal%d %c %% %s %d %d %u %u %p %x %X",42,'a',"cemal",-123,0,42,0,p,213,12));
-	ft_printf("\n");
-    printf("//%d//",printf("cemal%d %c %% %s %d %d %u %u %p %x %X",42,'a',"cemal",-123,0,42,0,p,213,12));
+	ft_printf("//%d//",ft_printf("%%cemal%d %c %% %s %d %d %u %u %p %x %X",42,'a',"cemal",-123,0,42,0,p,2112123,2112123));
+	ft_printf("\n"); 
+    printf("//%d//",printf("%%cemal%d %c %% %s %d %d %u %u %p %x %X",42,'a',"cemal",-123,0,42,0,p,2112123,2112123));
 }
-
+*/

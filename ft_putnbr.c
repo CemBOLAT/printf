@@ -6,13 +6,13 @@
 /*   By: cbolat <cbolat@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 12:04:22 by cbolat            #+#    #+#             */
-/*   Updated: 2022/10/24 15:45:53 by cbolat           ###   ########.fr       */
+/*   Updated: 2022/10/24 16:16:04 by cbolat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-void	ft_printfnbr(int nb)
+static void	ft_printfnbr(int nb)
 {
 	if (nb >= -2147483648)
 	{

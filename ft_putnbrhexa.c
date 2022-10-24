@@ -6,13 +6,13 @@
 /*   By: cbolat <cbolat@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 12:51:21 by cbolat            #+#    #+#             */
-/*   Updated: 2022/10/24 13:24:27 by cbolat           ###   ########.fr       */
+/*   Updated: 2022/10/24 16:16:00 by cbolat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int	ft_hexalen(unsigned int nbr)
+static int	ft_hexalen(unsigned int nbr)
 {
 	int	res;
 
@@ -25,7 +25,7 @@ int	ft_hexalen(unsigned int nbr)
 	return (res);
 }
 
-void	ft_printhexa(unsigned int n, char c)
+static void	ft_printhexa(unsigned int n, char c)
 {
 	if (n >= 16)
 	{
