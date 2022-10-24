@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cbolat <cbolat@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/15 12:10:31 by cbolat            #+#    #+#             */
-/*   Updated: 2022/10/15 18:15:34 by cbolat           ###   ########.fr       */
+/*   Created: 2022/10/24 11:44:57 by cbolat            #+#    #+#             */
+/*   Updated: 2022/10/24 11:46:20 by cbolat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "printf.h"
 
-void	ft_bzero(void *s, size_t n)
+int	ft_putchar(char c)
 {
-	ft_memset(s, '\0', n);
+	write(1, &c, 1);
+	return (1);
 }
