@@ -19,12 +19,15 @@
 # include <string.h>
 # include <unistd.h>
 
-int	ft_printf(const char *str, ...);
-int	ft_putchar(char c);
-int	ft_putstr(char *c);
-int	ft_putnbr(int nbr);
-int	ft_putnbrui(unsigned int nbr);
-int	ft_putnbrhexa(char c, unsigned int nbr);
-int	ft_putptr(unsigned long long nbr);
+int		ft_printf(const char *str, ...);
+char	*ft_itoa(int nbr);
+int		ft_putchar(char c);
+int		ft_format(const char c, va_list args);
+int		ft_putnbr(int nbr);
+int		ft_putstr(const char *c);
+int		ft_putnbr(int nbr);
+int		ft_print_unsigned(unsigned int n);
+int		ft_putnbrhexa(char c, unsigned int nbr);
+int		ft_putptr(unsigned long long nbr);
 
 #endif

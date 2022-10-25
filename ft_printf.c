@@ -12,24 +12,30 @@
 
 #include "printf.h"
 
-int	ft_format(int i, const char *str, va_list args)
+int	ft_putchar(char c)
+{
+	write(1, &c, 1);
+	return (1);
+}
+
+int	ft_format(const char c, va_list args)
 {
 	int	res;
 
 	res = 0;
-	if (str[i] != '\0' && str[i] == '%')
-		res += ft_putchar(str[i]);
-	else if (str[i] != '\0' && str[i] == 'c')
+	if (c == '%')
+		res += ft_putchar('%');
+	else if (c == 'c')
 		res += ft_putchar(va_arg(args, int));
-	else if (str[i] != '\0' && str[i] == 's')
+	else if (c == 's')
 		res += ft_putstr(va_arg(args, char *));
-	else if (str[i] != '\0' && (str[i] == 'd' || str[i] == 'i'))
+	else if (c == 'd' || c == 'i')
 		res += ft_putnbr(va_arg(args, int));
-	else if (str[i] != '\0' && str[i] == 'u')
-		res += ft_putnbrui(va_arg(args, unsigned int));
-	else if (str[i] != '\0' && (str[i] == 'x' || str[i] == 'X'))
-		res += ft_putnbrhexa(str[i], va_arg(args, unsigned int));
-	else if (str[i] != '\0' && str[i] == 'p')
+	else if (c == 'u')
+		res += ft_print_unsigned(va_arg(args, unsigned int));
+	else if (c == 'x' || c == 'X')
+		res += ft_putnbrhexa(c, va_arg(args, unsigned int));
+	else if (c == 'p')
 		res += ft_putptr(va_arg(args, unsigned long long));
 	return (res);
 }
@@ -43,12 +49,12 @@ int	ft_printf(const char *str, ...)
 	i = 0;
 	res = 0;
 	va_start(args, str);
-	while (str[i] != '\0')
+	while (str[i])
 	{
 		if (str[i] == '%')
 		{
 			i++;
-			res += ft_format(i, str, args);
+			res += ft_format(str[i], args);
 		}
 		else
 			res += ft_putchar(str[i]);
@@ -57,13 +63,15 @@ int	ft_printf(const char *str, ...)
 	va_end(args);
 	return (res);
 }
-
-/* // printf("cemal");
+/*
 int main()
-{
-	char *p = "cemal";
-	ft_printf("//%d//",ft_printf("%%cemal%d %c %% %s %d %d %u %u %p %x %X",42,'a',"cemal",-123,0,42,0,p,2112123,2112123));
-	ft_printf("\n"); 
-    printf("//%d//",printf("%%cemal%d %c %% %s %d %d %u %u %p %x %X",42,'a',"cemal",-123,0,42,0,p,2112123,2112123));
+{	
+	char *str = "cema";
+	ft_putchar('a');
+	ft_putchar('\n');
+	ft_printf("//%d", ft_printf("%p",str));
+	ft_printf("\n");
+	printf("//%d", printf("%p",str));
+	return 0;
 }
 */

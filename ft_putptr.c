@@ -12,7 +12,7 @@
 
 #include "printf.h"
 
-int	ft_hexalenptr(unsigned long nbr)
+static int	ft_hexalenptr(unsigned long nbr)
 {
 	int	res;
 
@@ -32,24 +32,26 @@ void	ft_printhexaptr(unsigned long long n)
 		ft_printhexaptr(n / 16);
 		ft_printhexaptr(n % 16);
 	}
-	else if (n <= 9)
-		ft_putchar(n + 48);
-	else if (n >= 10 && n <= 15)
-		ft_putchar(n + 87);
+	else
+	{
+		if (n > 9)
+			ft_putchar(n - 10 + 'a');
+		else
+			ft_putchar(n + 48);
+	}
 }	
 
 int	ft_putptr(unsigned long long p)
 {
 	int	res;
 
-	res = 2;
+	res = ft_putstr("0x");
 	if (p == 0)
+		res += ft_putchar('0');
+	else
 	{
-		write(1, "0x0", 3);
-		return (3);
+		ft_printhexaptr(p);
+		res += ft_hexalenptr(p);
 	}
-	write(1, "0x", 2);
-	ft_printhexaptr(p);
-	res += ft_hexalenptr(p);
 	return (res);
 }

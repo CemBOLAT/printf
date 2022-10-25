@@ -12,33 +12,47 @@
 
 #include "printf.h"
 
-static void	ft_printunsignedint(unsigned int nb)
+int	countui(unsigned int n)
 {
-	if (nb > 9)
+	int	count;
+
+	count = 0;
+	while (n != 0)
 	{
-		ft_printunsignedint(nb / 10);
-		ft_printunsignedint(nb % 10);
+		n = n / 10;
+		count++;
 	}
-	else
-		ft_putchar(nb + 48);
+	return (count);
 }
 
-int	ft_putnbrui(unsigned int nbr)
+char	*ft_itoaui(unsigned int n)
 {
-	int	res;
+	char	*s;
+	int		len;
 
-	ft_printunsignedint(nbr);
-	if (nbr == 0)
+	len = countui(n);
+	s = (char *)malloc(len + 1);
+	s[len] = '\0';
+	while (n != 0)
+	{
+		s[--len] = n % 10 + 48;
+		n = n / 10;
+	}
+	return (s);
+}
+
+int	ft_print_unsigned(unsigned int n)
+{
+	char	*s;
+	int		len;
+
+	if (n == 0)
+	{
+		write(1, "0", 1);
 		return (1);
-	else if (nbr < 0)
-	{
-		res = 1;
-		nbr *= -1;
 	}
-	while (nbr != 0)
-	{
-		nbr /= 10;
-		res++;
-	}
-	return (res);
+	s = ft_itoaui(n);
+	len = ft_putstr(s);
+	free(s);
+	return (len);
 }

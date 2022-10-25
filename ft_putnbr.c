@@ -12,49 +12,19 @@
 
 #include "printf.h"
 
-static void	ft_printfnbr(int nb)
-{
-	if (nb >= -2147483648)
-	{
-		if (nb == -2147483648)
-		{
-			ft_putchar('-');
-			ft_putchar('2');
-			ft_printfnbr(147483648);
-		}
-		else if (nb < 0)
-		{
-			ft_putchar('-');
-			nb = -nb;
-			ft_printfnbr(nb);
-		}
-		else if (nb > 9)
-		{
-			ft_printfnbr(nb / 10);
-			ft_printfnbr(nb % 10);
-		}
-		else
-			ft_putchar(nb + 48);
-	}
-}
-
 int	ft_putnbr(int nbr)
 {
-	int	res;
+	int		i;
+	char	*s;
 
-	ft_printfnbr(nbr);
-	res = 0;
+	i = 0;
 	if (nbr == 0)
+	{
+		(write(1, "0", 1));
 		return (1);
-	else if (nbr < 0)
-	{
-		res = 1;
-		nbr *= -1;
 	}
-	while (nbr != 0)
-	{
-		nbr /= 10;
-		res++;
-	}
-	return (res);
+	s = ft_itoa(nbr);
+	i = ft_putstr(s);
+	free(s);
+	return (i);
 }

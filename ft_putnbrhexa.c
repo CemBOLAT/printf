@@ -12,7 +12,7 @@
 
 #include "printf.h"
 
-static int	ft_hexalen(unsigned int nbr)
+int	ft_hexalen(unsigned int nbr)
 {
 	int	res;
 
@@ -25,7 +25,7 @@ static int	ft_hexalen(unsigned int nbr)
 	return (res);
 }
 
-static void	ft_printhexa(unsigned int n, char c)
+void	ft_printhexa(unsigned int n, char c)
 {
 	if (n >= 16)
 	{
