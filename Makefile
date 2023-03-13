@@ -18,7 +18,7 @@ SRC = ft_*.c;
 
 OBJ = ft_*.o
 
-all: ${NAME}
+all: $(NAME)
 
 ${NAME}: $(OBJ)
 	@gcc ${FLAGS} -c ${SRC}
