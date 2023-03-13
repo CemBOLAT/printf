@@ -20,7 +20,7 @@ OBJ = ft_*.o
 
 all: ${NAME}
 
-${NAME}:
+${NAME}: $(OBJ)
 	@gcc ${FLAGS} -c ${SRC}
 	@ar -rcs ${NAME} ${OBJ}
 
